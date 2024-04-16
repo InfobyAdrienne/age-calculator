@@ -1,0 +1,16 @@
+body {
+  background-color: #dbdbdb;
+  font-family: poppins;
+}
+
+.box {
+  margin-top: 8%;
+  display: flex;
+  justify-content: center;
+  height: 425px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-radius: 3% 3% 35% 3%;
+}
