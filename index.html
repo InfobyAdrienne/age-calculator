@@ -57,22 +57,67 @@
     <script>
       function convertToDate() {
         // retrieve day value from input
-        const day = document.getElementById("dayInput").value;
+        const birthday = document.getElementById("dayInput").value;
 
         // retrieve month value from input
-        const month = document.getElementById("monthInput").value - 1;
+        const birthmonth = document.getElementById("monthInput").value - 1;
 
         // retrieve year value from input
-        const year = document.getElementById("yearInput").value;
+        const birthyear = document.getElementById("yearInput").value;
 
         // Create a new Date object
-        const date = new Date(year, month, day);
+        const birthdate = new Date(birthyear, birthmonth, birthday);
+        
+        // Output the result of what was typed in
+        console.log(birthdate);
 
+        // Get the current date
         const today = new Date();
 
-        // Output the result
-        console.log(date);
-        alert(`The date is: ${date.toDateString()}, Today's date is ${new Date().toDateString()}`);
+        // Extract day, month and year from today's date
+        const currentDay = today.getDate();
+        const currentyMonth = today.getMonth();
+        const currentYear = today.getFullYear();
+
+        //declare a variable to collect the age in year, month, and days  
+        var age = {};
+
+        //get years  
+        yearAge = currentYear - birthyear;  
+        console.log(yearAge);
+
+        //get months
+        if (currentyMonth >= birthmonth) {
+          var monthAge = currentyMonth - birthmonth;
+        } else {
+          yearAge--;
+          var monthAge = 12 + currentyMonth - birthmonth;
+        }
+        console.log(monthAge);
+
+        //get days
+        if (currentDay >= birthday) {
+          var dayAge = currentDay - birthday;
+        } else {
+          monthAge--;
+          var dayAge = 31 + currentDay - birthday;
+
+          if (monthAge < 0) {
+            monthAge = 11;
+            yearAge--;
+          }
+        }
+        console.log(dayAge);
+
+        //group the age in a single variable  
+        age = {  
+        years: yearAge,  
+        months: monthAge,  
+        days: dayAge  
+        };  
+        console.log(age);
+
+        // Output the result onto the same page 
 
       }
     </script>
